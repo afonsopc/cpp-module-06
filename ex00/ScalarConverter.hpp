@@ -6,7 +6,7 @@
 /*   By: afpachec <afpachec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:48:30 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 19:51:40 by afpachec         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:20:49 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sstream>
 # include <cmath>
 # include <limits>
+# include <typeinfo>
 # include "utils.hpp"
 
 class ScalarConverter {

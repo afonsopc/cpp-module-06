@@ -6,7 +6,7 @@
 /*   By: afpachec <afpachec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:49:42 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 19:54:24 by afpachec         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:22:04 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	ft_str_is_double(const std::string &s) {
 double	ft_str_to_double(const std::string& s) {
 	double	value;
 
-	if (s == "+inf" || s == "+inff")
+	if (s == "inf" || s == "+inf" || s == "+inff")
 		return (std::numeric_limits<double>::infinity());
 	if (s == "-inf" || s == "-inff")
 		return (-std::numeric_limits<double>::infinity());
