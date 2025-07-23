@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afpachec <afpachec@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 15:48:30 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 18:28:26 by afpachec         ###   ########.fr       */
+/*   Created: 2025/07/23 18:41:18 by afpachec          #+#    #+#             */
+/*   Updated: 2025/07/23 19:32:49 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_CONVERTER_HPP
-# define SCALAR_CONVERTER_HPP
+#ifndef DATA_HPP
+# define DATA_HPP
 
-# include <string>
-# include <iostream>
-# include <iomanip>
-# include <sstream>
-# include "utils.hpp"
-
-class ScalarConverter {
+class Data {
 	private:
-		ScalarConverter(void);
-		ScalarConverter(const ScalarConverter &other);
-		ScalarConverter &operator=(const ScalarConverter &other);
-		~ScalarConverter(void);
+		int	value;
 	public:
-		static void	convert(const std::string value);
+		Data(void);
+		Data(const Data &other);
+		Data &operator=(const Data &other);
+		~Data(void);
+		int		getValue(void) const;
+		void	setValue(int newValue);
 };
 
 #endif

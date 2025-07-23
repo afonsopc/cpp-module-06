@@ -6,11 +6,16 @@
 /*   By: afpachec <afpachec@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:48:47 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 18:12:02 by afpachec         ###   ########.fr       */
+/*   Updated: 2025/07/23 18:29:24 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter(void) {}
+ScalarConverter::ScalarConverter(const ScalarConverter &other) { (void)other; }
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) { return ((void)other, *this); }
+ScalarConverter::~ScalarConverter(void) {}
 
 template<typename T>
 static std::string	parse(const std::string &value_str) {
