@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afpachec <afpachec@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: afpachec <afpachec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:48:47 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 18:29:24 by afpachec         ###   ########.fr       */
+/*   Updated: 2025/07/23 19:53:49 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,26 @@ static std::string	parse(const std::string &value_str) {
 	double				value;
 
 	value = ft_str_to_double(value_str);
-	if ((isnan(value) && ((value_str != "nan" && value_str != "nanf") || !std::is_floating_point<T>::value))
-		|| (std::is_same<T, char>::value && !isascii(value))) {
-		value = static_cast<int>(value_str[0]);
+	if (value != value && value_str != "nan" && value_str != "nanf") {
 		if (value_str.length() != 1)
 			return ("impossible");
-	} else if (!std::is_floating_point<T>::value && (value == INFINITY || value == -INFINITY))
+		value = static_cast<double>(value_str[0]);
+	}
+	bool is_float_type = (sizeof(T) == sizeof(float) && std::numeric_limits<T>::has_infinity) ||
+						 (sizeof(T) == sizeof(double) && std::numeric_limits<T>::has_infinity);
+	if (!is_float_type && (value == std::numeric_limits<double>::infinity() || value == -std::numeric_limits<double>::infinity()))
 		return ("impossible");
-    if (std::is_floating_point<T>::value)
-        stream << std::fixed << std::setprecision(1);
-	if (std::is_same<T, char>::value) {
-		if (isprint(static_cast<T>(value)))
-			stream << "'" << static_cast<T>(value) << "'";
+	if (sizeof(T) == sizeof(float) || sizeof(T) == sizeof(double))
+		stream << std::fixed << std::setprecision(1);
+	if (sizeof(T) == sizeof(char) && std::numeric_limits<T>::is_integer) {
+		if (value >= 0 && value <= 127 && isprint(static_cast<int>(value)))
+			stream << "'" << static_cast<char>(value) << "'";
 		else
 			stream << "Non displayable";
 	}
 	else
 		stream << static_cast<T>(value);
-	if (std::is_same<T, float>::value)
+	if (sizeof(T) == sizeof(float) && std::numeric_limits<T>::has_infinity)
 		stream << "f";
 	return (stream.str());
 }

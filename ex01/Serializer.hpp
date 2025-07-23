@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afpachec <afpachec@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: afpachec <afpachec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:48:30 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 19:33:20 by afpachec         ###   ########.fr       */
+/*   Updated: 2025/07/23 19:51:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SERIALIZER_HPP
 
 # include "Data.hpp"
-#include <cstdint>
 
 class Serializer {
 	private:
@@ -23,8 +22,8 @@ class Serializer {
 		Serializer &operator=(const Serializer &other);
 		~Serializer(void);
 	public:
-		static uintptr_t	serialize(Data* ptr);
-		static Data*		deserialize(uintptr_t raw);
+		static unsigned long	serialize(Data* ptr);
+		static Data*			deserialize(unsigned long raw);
 };
 
 #endif

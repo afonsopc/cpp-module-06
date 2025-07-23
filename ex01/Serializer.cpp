@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afpachec <afpachec@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: afpachec <afpachec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:48:47 by afpachec          #+#    #+#             */
-/*   Updated: 2025/07/23 19:33:15 by afpachec         ###   ########.fr       */
+/*   Updated: 2025/07/23 19:51:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ Serializer::Serializer(const Serializer &other) { (void)other; }
 Serializer &Serializer::operator=(const Serializer &other) { return ((void)other, *this); }
 Serializer::~Serializer(void) {}
 
-uintptr_t Serializer::serialize(Data* ptr) {
-	return reinterpret_cast<uintptr_t>(ptr);
+unsigned long Serializer::serialize(Data* ptr) {
+	return reinterpret_cast<unsigned long>(ptr);
 }
 
-Data* Serializer::deserialize(uintptr_t raw) {
+Data* Serializer::deserialize(unsigned long raw) {
 	return reinterpret_cast<Data*>(raw);
 }
